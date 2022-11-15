@@ -1,0 +1,18 @@
+FROM nginx:latest
+
+## Old Configuration
+RUN sed 's\Welcome to nginx\index2\g' /usr/share/nginx/html/index.html > /usr/share/nginx/html/index2.html
+
+RUN mkdir -p /usr/share/nginx/html/nested1 && \
+    sed 's\Welcome to nginx\nested1\g' /usr/share/nginx/html/index.html > /usr/share/nginx/html/nested1/index.html; \
+    mkdir -p /usr/share/nginx/html/nested2 && \
+    sed 's\Welcome to nginx\nested2\g' /usr/share/nginx/html/index.html > /usr/share/nginx/html/nested2/index.html; \
+    mkdir -p /usr/share/nginx/html/nested1/nestednested1 && \
+    sed 's\Welcome to nginx\nestednested1\g' /usr/share/nginx/html/index.html > /usr/share/nginx/html/nested1/nestednested1/index.html; \
+    mkdir -p /usr/share/nginx/html/nested2/nestednested2 && \
+    sed 's\Welcome to nginx\nestednested2\g' /usr/share/nginx/html/index.html > /usr/share/nginx/html/nested2/nestednested2/index.html
+
+RUN sed -i 's\Welcome to nginx\CHANGE ME ROOT\g' /usr/share/nginx/html/index.html
+RUN sed -i 's\server_name  localhost;\\g' /etc/nginx/conf.d/default.conf
+
+## New Configuration
