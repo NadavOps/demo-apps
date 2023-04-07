@@ -1,6 +1,6 @@
 # Sleep
 
-## build
+## Build
 ```bash
 docker buildx build \
     -t nadavops/tooling:sleep \
@@ -9,12 +9,12 @@ docker buildx build \
     .
 ```
 
-## run
+## Run
 ```bash
 docker run -d --name sleep -e SLEEP_TIME="5" --rm nadavops/tooling:sleep
 ```
 
-## remove
+## Remove
 ```bash
 docker kill sleep; docker rm sleep; docker image rm nadavops/tooling:sleep
 ```

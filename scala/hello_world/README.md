@@ -1,6 +1,6 @@
 # Scala hello world
 
-## build
+## Build
 ```bash
 docker buildx build \
     -t nadavops/scala:hello_world \
@@ -9,12 +9,12 @@ docker buildx build \
     .
 ```
 
-## run
+## Run
 ```bash
 docker run --name scala_hello_world nadavops/scala:hello_world
 ```
 
-## remove
+## Remove
 ```bash
 docker kill scala_hello_world; docker rm scala_hello_world; docker image rm nadavops/scala:hello_world
 ```
