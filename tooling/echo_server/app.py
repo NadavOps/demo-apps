@@ -27,12 +27,16 @@ class GetHandler(BaseHTTPRequestHandler):
                 ]
         for name, value in sorted(self.headers.items()):
             if name.lower() == "cookie":
-                message_parts.append(f'{name}:')
-                cookie_value_as_array = value.rstrip().split("; ")
-                for item in cookie_value_as_array:
-                    cookie_key = item.split("=")[0]
-                    cookie_value = item.split("=")[1]
-                    message_parts.append(f'  {cookie_key}: {cookie_value}')
+                try:
+                    message_parts.append(f'{name}:')
+                    cookie_value_as_array = value.rstrip().split("; ")
+                    for item in cookie_value_as_array:
+                        cookie_key = item.split("=")[0]
+                        cookie_value = item.split("=")[1]
+                        message_parts.append(f'  {cookie_key}: {cookie_value}')
+                except Exception as e:
+                    print(f"ERROR: cookie header was not recived as opinionated expected, defaulting to regular output. Exception is: {e}")
+                    message_parts.append('%s: %s' % (name, value.rstrip()))
             else:
                 message_parts.append('%s: %s' % (name, value.rstrip()))
         message_parts.append('')

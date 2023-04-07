@@ -1,5 +1,5 @@
 # Echo Server
-taken from: `gcr.io/google-containers/echoserver` \
+taken from: `gcr.io/google-containers/echoserver:1.0` \
 Functionality added:
 * Image reduction
 * Port environment variable
