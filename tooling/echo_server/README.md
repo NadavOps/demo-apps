@@ -1,6 +1,10 @@
 # Echo Server
 taken from: `gcr.io/google-containers/echoserver` \
-reduced sized and added functionality (port awareness and arm support)
+Functionality added:
+* Image reduction
+* Port environment variable
+* ARM support
+* Easier format for cookie output
 
 ## Build
 ```bash

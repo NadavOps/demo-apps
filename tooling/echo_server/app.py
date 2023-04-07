@@ -26,7 +26,15 @@ class GetHandler(BaseHTTPRequestHandler):
                 'HEADERS RECEIVED:',
                 ]
         for name, value in sorted(self.headers.items()):
-            message_parts.append('%s: %s' % (name, value.rstrip()))
+            if name.lower() == "cookie":
+                message_parts.append(f'{name}:')
+                cookie_value_as_array = value.rstrip().split("; ")
+                for item in cookie_value_as_array:
+                    cookie_key = item.split("=")[0]
+                    cookie_value = item.split("=")[1]
+                    message_parts.append(f'  {cookie_key}: {cookie_value}')
+            else:
+                message_parts.append('%s: %s' % (name, value.rstrip()))
         message_parts.append('')
         message = '\r\n'.join(message_parts)
         self.send_response(200)
