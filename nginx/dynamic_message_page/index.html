@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>My Website</title>
   </head>
   <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: $BACKGROUND_COLOR;
+    }
+
     h2 {
-      font-size: 48px; /* Increase the font size to 36 pixels */
+      font-size: 24px;
       color: red;
     }
   </style>
   <body>
     <h1>
-      HEY You,<br>
-      This Nginx Docker has an env variable MESSAGE with the value of:<br>
+      HEY,<br>
+      You are so awsome to make me $BACKGROUND_COLOR, I LOVE IT! ♡＼(￣▽￣)／♡<br>
     </h1>
     <h2>
+      This is a Nginx container<br>
+      The env variable MESSAGE is set to:<br>
       $MESSAGE
-    </21>
+    </h2>
   </body>
 </html>

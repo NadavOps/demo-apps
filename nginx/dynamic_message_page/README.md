@@ -11,7 +11,10 @@ docker buildx build \
 
 ## Run
 ```bash
-docker run -d --name dynamic_env_message_page -p 8080:80 -e MESSAGE="Hello, world" nadavops/nginx:dynamic_env_message_page
+docker run -d --name dynamic_env_message_page -p 8080:80 \
+    -e MESSAGE="Hello, world" \
+    -e BACKGROUND_COLOR="white" \
+    nadavops/nginx:dynamic_env_message_page
 ```
 
 ## Remove
